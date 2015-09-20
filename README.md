@@ -1,1 +1,1 @@
-# full-stack-web-development-specialization.
+# full-stack-web-development-specialization
