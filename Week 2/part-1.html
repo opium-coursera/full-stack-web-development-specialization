@@ -30,8 +30,6 @@
             // list of available color
             var colourNames = Object.keys(colours);
 
-            var gussesCounter = 0;
-
             function guess() { 
                 //generate random guessing color number
                 var aimColorIndex = Math.floor(Math.random() * (colourNames.length-1));
@@ -39,57 +37,23 @@
                 aimColorName = colourNames[aimColorIndex]
 
                 var finished = false;
-                while (!finished) {       
-                    gussesCounter++;
-
+                while (!finished) {                           
                     inputColor = prompt("I am thinking of one of these colors: \n\n" 
                                         + colourNames.join("\n") + "\n\n"
                                         + "What color am I thinkiing of? \n\n"
                                         + "Help: target colour - " + aimColorName);
 
                     //Cancel pressed
-                    if (inputColor === null) {
-                        finished = true;
-                        //TODO: add output message
+                    if (inputColor === null) {                    
                         return;
                     }
 
-                    finished = checkGuess(inputColor)                            
+                    finished = inputColor == aimColorName                           
                 }    
-
-                alert("Congratulations!!! You have guessed the color! \n\n"
-                      + "It took you " + gussesCounter + " guesses to finish the game! \n\n") 
-            }
-
-            function checkGuess(inputColor) {
-                if (inputColor == aimColorName) {
-                    return true
-                }
-
-                if (inputColor == "") {
-                    alert("Sorry your guess is not correct! \n\n Hint: Empty string is INVALID color \n\n Please try again.") 
-                    return false
-                }
-
-                if (colourNames.indexOf(inputColor) == -1) {
-                    alert("Sorry your guess is not correct! \n\n Hint: your color is NOT part of my list. \n\n Please try again.") 
-                    return false
-                }
-
-                if (inputColor > aimColorName) {
-                    alert("Sorry your guess is not correct! \n\n Hint: your color is alphabetically HIGHER than mine. \n\n Please try again.") 
-                    return false
-                }
-
-                if (inputColor < aimColorName) {
-                    alert("Sorry your guess is not correct! \n\n Hint: your color is alphabetically LOWER than mine. \n\n Please try again.") 
-                    return false
-                }
-            }             
+            }           
         </script>
     </head>
     
     <body onload="guess()">
-<!--        <script src="part-1.js"></script>-->
     </body>
 </html>
