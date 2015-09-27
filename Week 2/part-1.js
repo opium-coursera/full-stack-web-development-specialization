@@ -35,9 +35,10 @@ function guess() {
     while (!finished) {       
         gussesCounter++;
         
-        inputColor = prompt("I am thinking of one of these colors: \n\n" +
-                                  colourNames.join("\n") + "\n\n" + 
-                                  "What color am I thinkiing of?");
+        inputColor = prompt("I am thinking of one of these colors: \n\n" 
+                            + colourNames.join("\n") + "\n\n"
+                            + "What color am I thinkiing of? \n\n"
+                            + "Help: target colour - " + aimColorName);
         
         //Cancel pressed
         if (inputColor === null) {
