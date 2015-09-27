@@ -17,9 +17,13 @@ var colours = { "aliceblue":"#f0f8ff",
                 "whitesmoke":"#f5f5f5"
               }
 
+// color we need to guess
 var aimColorName;
 
+// list of available color
 var colourNames = Object.keys(colours);
+
+var gussesCounter = 0;
 
 function guess() { 
     //generate random guessing color number
@@ -28,7 +32,9 @@ function guess() {
     aimColorName = colourNames[aimColorIndex]
     
     var finished = false;
-    while (!finished) {        
+    while (!finished) {       
+        gussesCounter++;
+        
         inputColor = prompt("I am thinking of one of these colors: \n\n" +
                                   colourNames.join("\n") + "\n\n" + 
                                   "What color am I thinkiing of?");
@@ -43,7 +49,8 @@ function guess() {
         finished = checkGuess(inputColor)                            
     }    
     
-    
+    alert("Congratulations!!! You have guessed the color! \n\n"
+          + "It took you " + gussesCounter + " guesses to finish the game! \n\n") 
 }
 
 function checkGuess(inputColor) {
